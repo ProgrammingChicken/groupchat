@@ -1,9 +1,12 @@
 chat = {}
-chataskees = {}
-chataskers = {}
+chatters = {}
 minetest.register_on_joinplayer(function(player)
-  
-)
+	chat = chat + {}
+	chatters = chatters + player
+end)
+function lengthOf(param)
+	
+end
 function isOnline(param)
   for _,player in ipairs(minetest.get_connected_players()) do
 	  local name = player:get_player_name()
@@ -11,6 +14,11 @@ function isOnline(param)
 	    break
     end
   end
+end
+function findPlayer(param)
+	for i=1, lengthOf(chatters) do
+		
+	end
 end
 minetest.register_chatcommand("gc", {
   params = "<m/d/s/a/accept/decline>",
@@ -20,9 +28,10 @@ minetest.register_chatcommand("gc", {
     local params = minetest.splittext(param)
     if params[1] = "a" then
       if isOnline(param[2]) then
-        chataskees = chataskees + param[2]
-        chataskers =  chataskers + name
-        minetest.chat_send_player(name, "Hello "..name"!\n"..asker.." wants you to join their chatgroup. To accept "..asker.."'s inivitation, type in:\n/gc accept\nTo decline, replace 'accept' with 'decline'.")
+      	local findPlayer(name)
+        return true, "[GROUPCHAT] Added."
+      else
+      	return false, "[GROUPCHAT] The player you requested to add is not online."
       end
     elseif params[1] = "d"
   end,
